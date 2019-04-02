@@ -22,6 +22,9 @@ import DashboardWorker from './pages/DashboardWorker'
 
 import Product from './pages/Product';
 import CreateProduct from './pages/CreateProduct';
+import seeOrders from './pages/SeeOrders';
+import WorkerProduct from './pages/WorkerProduct';
+import WorkerOrder from './pages/WorkerOrder';
 
 import ChooseReport from './pages/ChooseReport';
 import UniqueReport from './pages/UniqueReport';
@@ -44,7 +47,8 @@ const workerStackNavigator = createStackNavigator({
 
 const productStackNavigator = createStackNavigator({
     Product,
-    CreateProduct
+    CreateProduct,
+    seeOrders
 })
 
 const ReportStackNavigator = createStackNavigator({
@@ -93,8 +97,14 @@ const ScheduleWorker = createStackNavigator({
     ScheduleInformation
 })
 
+const ProductWorker = createStackNavigator({
+    WorkerProduct,
+    WorkerOrder
+})
+
 const Dashboard = createBottomTabNavigator({
-    Schedule: ScheduleWorker
+    Schedule: ScheduleWorker,
+    Product: ProductWorker
 }, {
     tabBarOptions: {
         activeTintColor: 'black',
@@ -107,6 +117,8 @@ const Dashboard = createBottomTabNavigator({
 
             if(routeName === 'Schedule') {
                 iconName = 'calendar'
+            } else if(routeName === 'Product') {
+                iconName = 'cart'
             }
 
             return <Icon name={iconName} size={25} style={{color: tintColor}} />;

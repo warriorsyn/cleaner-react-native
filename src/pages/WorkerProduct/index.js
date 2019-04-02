@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { View,Text, StyleSheet, FlatList, TouchableOpacity, Dimensions } from 'react-native';
-import { FAB } from 'react-native-paper';
+ 
 import { Icon } from 'native-base';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ProductActions from '../../store/ducks/product';
 
-const { WIDTH } = Dimensions.get('window');
 
-class Product extends Component {
+class WorkerProduct extends Component {
     static navigationOptions = {
-        header: null,
-        title: "Product"
+ 
+        title: "Order Product"
     }
 
     componentDidMount() {
@@ -29,9 +28,11 @@ class Product extends Component {
       this.props.navigation.navigate('CreateProduct')
     }
 
-    handleOrder = () => {
-      this.props.navigation.navigate('seeOrders');
-    }
+ 
+    handleOrder = id => {
+        this.props.navigation.navigate('WorkerOrder', id)
+      }
+      
 
   render() {
 
@@ -49,19 +50,11 @@ class Product extends Component {
                     
                 </View>
                 <View>
-                    <Icon name="add" onPress={() => alert('pressed')}/>
+                    <Icon name="add" onPress={() => this.handleOrder(item.id)}/>
                 </View>
             </View> 
               )}
             />
-
-                <View style={{ alignItems: 'center' }}>
-                <TouchableOpacity onPress={this.handleOrder} style={styles.button}>
-                  <Text style={styles.label}>See requests</Text>
-                </TouchableOpacity>
-                </View>
-          
-            <FAB style={styles.fab} small icon="add" onPress={this.createProduct} />
         </View>
     );
   }
@@ -71,13 +64,6 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: 'white',
     },
-    fab: {
-      position: 'absolute',
-      margin: 16,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'blue',
-    },
     clients: {
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -85,21 +71,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderWidth: 0.5,
       borderColor: '#ccc',
-    },
-    button: {
-      height: 55,
-      backgroundColor: "deepskyblue",
-      borderRadius: 5,
-      width: 200,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginBottom: 15
-    },
-    label: {
-      color: 'white',
-      fontWeight: 'bold',
-      fontSize: 18
-    },
+    }
   });
   
 const mapDispatchToProps = dispatch => bindActionCreators(ProductActions, dispatch);
@@ -107,4 +79,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(ProductActions, dispat
 const mapStateToProps = state => ({
   product: state.product
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(WorkerProduct);

@@ -15,7 +15,7 @@ class DasboardWorker extends Component {
 
   static navigationOptions = {
     title: "My Schedule",
-    headerRight: <Icon name="log-out" style={{paddingRight: 10}} onPress={() => {}} />
+    
   }
 
   handlerLogout = ()=> {
@@ -46,7 +46,7 @@ class DasboardWorker extends Component {
               
               <View style={styles.clients}>
                 <View>
-                <Text>{item.work} {item.status !== 0 ? ( <Icon style={styles.done} name="checkmark-circle-outline" /> ): ''}</Text>
+                <Text>{item.work} {item.status !== false ? ( <Icon style={styles.done} name="checkmark-circle-outline" /> ): ''}</Text>
                 
                 <Text>{moment(item.date_time).format("DD/MM/YYYY")}</Text>
                 </View>

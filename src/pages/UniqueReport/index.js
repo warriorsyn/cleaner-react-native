@@ -20,12 +20,12 @@ class UniqueReport extends Component {
     }
 
   render() {
-    console.log(this.props.hours.report.data);
+    
     return (
         <View style={styles.container}>
 
             <View style={{ alignItems: 'center' }}>
-                <Text style={{ fontSize: 17 }}>Colaborador</Text>
+                <Text style={{ fontSize: 17 }}>Worker: </Text>
                 <Text>Activities</Text>
             </View>
 
@@ -33,11 +33,9 @@ class UniqueReport extends Component {
 
             <FlatList 
             
-            data={this.props.hours.report.data}
+            data={this.props.hours.hour.data}
             keyExtractor={item => String(item.id)}
-            renderItem={({ item }) => {
- 
-                { item && item.time.map(time => (
+            renderItem={({ item }) => (
              
                 
                         <View style={styles.content}>
@@ -48,12 +46,12 @@ class UniqueReport extends Component {
                         </View>
                         <View>
                             <Text style={{ fontSize: 17 }}>Hours</Text>
-                            <Text>{time.time_worked}</Text>
+                            <Text>{item.time_worked}</Text>
                         </View>
                     </View>
                     
-                ))}
-            }}
+         
+        )}
             />
 
             </View>

@@ -6,7 +6,7 @@ import { createClient, getClients } from './client';
 
 import { createWorker, getWorkers } from './worker';
 
-import { getProducts, createProducts } from './product';
+import { getProducts, createProducts, getOrders, getById, createOrder } from './product';
 
 import { getSchedules, createSchedule, getWorkersSchedule, getScheduleById, finishSchedule  } from './schedule';
 
@@ -34,6 +34,9 @@ export default function* () {
         takeLatest(ScheduleTypes.FINISH_SCHEDULE_REQUEST, finishSchedule),
         takeLatest(ProductTypes.GET_PRODUCTS_REQUEST, getProducts),
         takeLatest(ProductTypes.CREATE_PRODUCTS_REQUEST, createProducts),
-        takeLatest(HoursTypes.GET_HOURS_REPORT_REQUEST, getHoursReport)
+        takeLatest(ProductTypes.GET_ORDERS_REQUEST, getOrders),
+        takeLatest(ProductTypes.GET_PRODUCT_BY_ID_REQUEST, getById),
+        takeLatest(ProductTypes.CREATE_ORDER_REQUEST, createOrder),
+        takeLatest(HoursTypes.GET_HOURS_REPORT_REQUEST, getHoursReport),
     ])
 }
