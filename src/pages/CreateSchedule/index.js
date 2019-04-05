@@ -20,9 +20,9 @@ class CreateSchedule extends Component {
   
   state = {
     work: '',
-    ovservation: '',
+    observation: '',
     chosenDate: new Date(),
-    worker: "key1",
+    worker: "key2",
     client: "key1",
     checklist: [],
     mock: [12],
@@ -70,7 +70,7 @@ class CreateSchedule extends Component {
   }
 
   render() {
-    console.log(this.props)
+ 
     return (
       <KeyboardAvoidingView style={styles.container}>
         <Content>
@@ -85,8 +85,8 @@ class CreateSchedule extends Component {
               <TextInput 
               placeholder="Observation" 
               style={styles.input} 
-              value={this.state.ovservation} 
-              onChangeText={value => this.setState({ ovservation: value })}
+              value={this.state.observation} 
+              onChangeText={value => this.setState({ observation: value })}
               />
 
               <DatePicker

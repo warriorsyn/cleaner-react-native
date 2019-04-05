@@ -34,3 +34,10 @@ export function* getClients() {
         alert(e);
     }
 }
+
+export function* getClientReport({ id, first_date, second_date }) {
+    const { data } = yield call(api.post, `timeworkedclientreport/${id}`, { first_date, second_date });
+ 
+    yield put(ClientActions.getClientReportSuccess(data.rows));
+} 
+

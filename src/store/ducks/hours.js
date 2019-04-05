@@ -4,8 +4,8 @@ import Immutable from 'seamless-immutable';
 /* Types & Action Creators */
 
 const { Types, Creators } = createActions({
-    getHoursReportRequest: ['id'],
-    getHoursReportSuccess: ['data', 'user'],
+    getHoursReportRequest: ['id', 'first_date', 'second_date'],
+    getHoursReportSuccess: ['data'],
     
 });
 
@@ -15,13 +15,12 @@ export default Creators;
 /* Initial State */
 
 export const INITIAL_STATE = Immutable({
-    user: [],
-    hour: []
+    report: []
 });
 
 /* Reducers */
 
-export const hoursReportSuccess = (state, hour, user) => state.merge({ hour, user });
+export const hoursReportSuccess = (state, report) => state.merge({ report });
 
 /* Reducers to types */
 

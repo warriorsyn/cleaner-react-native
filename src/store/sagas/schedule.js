@@ -4,6 +4,7 @@ import api from '../../services/api';
 
 import ScheduleActions from '../ducks/schedule';
 import NavigationService from '../../services/navigation';
+ 
 
 export function* getSchedules() {
     const { data } = yield call(api.get, 'schedule')
@@ -16,11 +17,11 @@ export function* createSchedule({ work, observe, date_time, worker_id, client_id
 
     try {
         yield call(api.post, 'schedule', { work, observe, date_time, worker_id, client_id, checklist  });
-
+        // console.log(work, observe, date_time, worker_id, client_id, checklist)
         NavigationService.navigate('Schedule');
 
     } catch(e) {
-        alert(e);
+        console.log(e);
     }
 }
 

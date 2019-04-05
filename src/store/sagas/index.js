@@ -2,7 +2,7 @@ import { all, takeLatest } from 'redux-saga/effects';
 
 import { signIn, init, signOut } from './auth';
 
-import { createClient, getClients } from './client';
+import { createClient, getClients, getClientReport } from './client';
 
 import { createWorker, getWorkers } from './worker';
 
@@ -25,6 +25,7 @@ export default function* () {
         takeLatest(AuthTypes.SIGN_OUT, signOut),
         takeLatest(ClientTypes.CREATE_CLIENT_REQUEST, createClient),
         takeLatest(ClientTypes.GET_CLIENT_REQUEST, getClients),
+        takeLatest(ClientTypes.GET_CLIENT_REPORT_REQUEST, getClientReport),
         takeLatest(WorkerTypes.CREATE_WORKER_REQUEST, createWorker),
         takeLatest(WorkerTypes.GET_WORKER_REQUEST, getWorkers),
         takeLatest(ScheduleTypes.GET_SCHEDULE_REQUEST, getSchedules),

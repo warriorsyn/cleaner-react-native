@@ -17,8 +17,8 @@ class ChooseReport extends Component {
         this.props.getWorkerRequest();
       }
 
-    handleReport = id => {
-      this.props.navigation.navigate('UniqueReport', id)
+    handleReport = obj => {
+      this.props.navigation.navigate('UniqueReport', obj)
     }
     
   render() {
@@ -38,7 +38,7 @@ class ChooseReport extends Component {
               <Text>{item.address && (<Icon name="pin" style={{fontSize: 17}}/>)}{item.address}</Text>
             </View>
             <View>
-                <Icon name="add" onPress={() => this.handleReport(item.id)}/>
+                <Icon name="add" onPress={() => this.handleReport({ id: item.id, name: item.name })}/>
             </View>
           </View>
          

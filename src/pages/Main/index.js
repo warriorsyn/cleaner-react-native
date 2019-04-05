@@ -27,12 +27,19 @@ class Main extends React.Component {
         this.props.navigation.navigate('report');
     }
 
+    handlerClient = () => {
+        this.props.navigation.navigate('ClientReport');
+    }
     render() {
         return (
             <View style={styles.container}>
                  <View>
                      <TouchableOpacity onPress={this.handlerHours} style={styles.menu}>
-                         <Text style={styles.menuText}>Hours Report</Text>
+                         <Text style={styles.menuText}>Worker Hours Report</Text>
+                         <Icon name="arrow-forward" />
+                     </TouchableOpacity>
+                     <TouchableOpacity onPress={this.handlerClient} style={styles.menu}>
+                         <Text style={styles.menuText}>Client Hours Report</Text>
                          <Icon name="arrow-forward" />
                      </TouchableOpacity>
                      <TouchableOpacity onPress={this.handlerProduct} style={styles.menu}>

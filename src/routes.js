@@ -8,6 +8,9 @@ import Verify from './pages/Verify';
 import Main from './pages/Main';
 import Client from './pages/Client';
 import CreateClient from './pages/CreateClient';
+import ClientInformation from './pages/ClientInformation';
+import ClientReport from './pages/ClientReport';
+import ClientUniqueReport from './pages/ClientUniqueReport';
 
 import Worker from './pages/worker';
 import CreateWorker from './pages/CreateWorker';
@@ -31,7 +34,8 @@ import UniqueReport from './pages/UniqueReport';
 
 const clientStackNavigator = createStackNavigator({
     Client,
-    CreateClient
+    CreateClient,
+    ClientInformation
 })
 
 const scheduleStackNavigator = createStackNavigator({
@@ -42,6 +46,11 @@ const scheduleStackNavigator = createStackNavigator({
 const workerStackNavigator = createStackNavigator({
     Worker,
     CreateWorker
+})
+
+const clientReportNavigator = createStackNavigator({
+    ClientReport,
+    ClientUniqueReport
 })
 
 
@@ -59,7 +68,8 @@ const ReportStackNavigator = createStackNavigator({
 const HomeNavigator = createStackNavigator({
     Main,
     Product: productStackNavigator,
-    report: ReportStackNavigator
+    report: ReportStackNavigator,
+    ClientReport: clientReportNavigator
 })
 
 

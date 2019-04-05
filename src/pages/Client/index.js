@@ -32,7 +32,9 @@ class Client extends React.Component {
         this.props.getClientRequest();
       }
   }
-
+  handleClientReport = obj => {
+    this.props.navigation.navigate('ClientInformation', obj);
+  }
   render() {
      
     return (
@@ -50,7 +52,7 @@ class Client extends React.Component {
               <Text><Icon name="pin" style={{fontSize: 17}}/>{item.address}</Text>
             </View>
             <View>
-              <Icon name="add" onPress={() => alert('pressed')}/>
+              <Icon name="add" onPress={this.handleClientReport}/>
             </View>
           </View>
          
