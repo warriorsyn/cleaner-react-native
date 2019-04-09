@@ -49,9 +49,9 @@ class Worker extends React.Component {
               
               <Text>{item.address && (<Icon name="pin" style={{fontSize: 17}}/>)}{item.address}</Text>
             </View>
-            <View>
+            {/* <View>
                 <Icon name="add" onPress={() => alert('pressed')}/>
-            </View>
+            </View> */}
           </View>
          
           )}

@@ -6,12 +6,12 @@ import Immutable from 'seamless-immutable';
 const { Types, Creators } = createActions({
     getScheduleRequest: null,
     getScheduleSuccess: ['data'],
-    createScheduleRequest: ['work', 'observe', 'date_time', 'worker_id', 'client_id', 'checklist'],
+    createScheduleRequest: ['work', 'observe', 'date_time', 'worker_id', 'client_id', 'checklist', 'address'],
     getWorkersScheduleRequest: null,
     getWorkersScheduleSuccess: ['data'],
     getScheduleByIdRequest: ['id'],
     getScheduleByIdSuccess: ['data'],
-    finishScheduleRequest: ['id', 'time_worked'],
+    finishScheduleRequest: ['id', 'client_id', 'time_worked', 'finished_job'],
 });
 
 export const ScheduleTypes = Types;

@@ -1,4 +1,6 @@
 import { call, put } from 'redux-saga/effects';
+import { ToastActionsCreators } from 'react-native-redux-toast';
+
 import api from '../../services/api';
 
 import AsyncStorage from '@react-native-community/async-storage';
@@ -31,13 +33,12 @@ export function* signIn({ email, password }) {
         NavigationService.navigate('Main');
         
     } catch(err) {
-        alert(err)
+        yield put(ToastActionsCreators.displayError('Email and/or password are incorrect!'))
     }
 }
 
 export function* signOut () {
     yield call([AsyncStorage, 'clear']);
-    console.log('hi')
     NavigationService.navigate('Signin');
 }
 

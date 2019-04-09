@@ -45,10 +45,11 @@ class Schedule extends Component {
                         <Text>{item.work}</Text>
                         
                         <Text>{moment(item.date_time).format('DD/MM/YYYY')}</Text>
+                        <Text><Icon name="pin" style={{fontSize: 17}}/>{item.address}</Text>
                         </View>
-                        <View>
+                        {/* <View>
                             <Icon name="add" onPress={() => alert('pressed')}/>
-                        </View>
+                        </View> */}
                       </View>
                     )}
                   />

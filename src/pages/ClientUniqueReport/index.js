@@ -31,7 +31,6 @@ class ClientUniqueReport extends Component {
     }
     onSubmit = () =>  {
         this.props.getClientReportRequest(this.props.navigation.state.params.id, `${moment(this.state.chosenDate01).format("YYYY-MM-DD")}`, `${moment(this.state.chosenDate02).format('YYYY-MM-DD')}`);
-        console.log(this.props.report);
         // console.log(moment(this.state.chosenDate01).format("YYYY-MM-DD"));
     }
 
@@ -52,7 +51,7 @@ class ClientUniqueReport extends Component {
         <View style={styles.container}>
 
             <View style={{ alignItems: 'center' }}>
-                <Text style={{ fontSize: 17 }}>Worker: {this.props.navigation.state.params.name} </Text>
+                <Text style={{ fontSize: 17 }}>Client: {this.props.navigation.state.params.name} </Text>
                
           
             </View>

@@ -14,7 +14,7 @@ class DasboardWorker extends Component {
   
 
   static navigationOptions = {
-    title: "My Schedule",
+    title: "My Schedules",
     
   }
 
@@ -51,7 +51,7 @@ class DasboardWorker extends Component {
                 <Text>{moment(item.date_time).format("DD/MM/YYYY")}</Text>
                 </View>
                 <View>
-                    <Icon name="add" onPress={() => this.props.navigation.navigate('ScheduleInformation', item.id) }/>
+                    <Icon name="add" onPress={() => this.props.navigation.navigate('ScheduleInformation', {id: item.id, clientId: item.client_id}) }/>
                 </View>
               </View>
             )}

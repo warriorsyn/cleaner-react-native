@@ -22,11 +22,12 @@ class CreateSchedule extends Component {
     work: '',
     observation: '',
     chosenDate: new Date(),
-    worker: "key2",
-    client: "key1",
+    worker: null,
+    client: null,
     checklist: [],
     mock: [12],
-    value: ''
+    value: '',
+    address: ''
   }
 
   onValueChange = value => {
@@ -46,9 +47,22 @@ class CreateSchedule extends Component {
   }
 
   componentDidMount() {
+    // if(this.props.worker.data.data !== undefined) {
+    //    this.setState({
+    //     worker: this.props.worker.data.data.id,
+    //      client: this.props.client.data.data.id
+    //   })
+    // }
+   
     this.props.WorkerCreator.getWorkerRequest();
     this.props.ClientCreator.getClientRequest();
   }
+
+  componentDidUpdate(prevProps) {
+      this.props.WorkerCreator.getWorkerRequest();
+      this.props.ClientCreator.getClientRequest();
+
+}
 
   ckecklistHandler = () => {
     this.setState({
@@ -65,8 +79,8 @@ class CreateSchedule extends Component {
 
 
   handleSubmit = () => {
-    const { work, observation, chosenDate, worker, client, checklist } = this.state;
-    this.props.ScheduleCreator.createScheduleRequest(work, observation, chosenDate, worker, client, checklist);
+    const { work, observation, chosenDate, worker, client, checklist, address } = this.state;
+    this.props.ScheduleCreator.createScheduleRequest(work, observation, chosenDate, worker, client, checklist, address);
   }
 
   render() {
@@ -87,6 +101,13 @@ class CreateSchedule extends Component {
               style={styles.input} 
               value={this.state.observation} 
               onChangeText={value => this.setState({ observation: value })}
+              />
+
+            <TextInput 
+              placeholder="Address" 
+              style={styles.input} 
+              value={this.state.address} 
+              onChangeText={value => this.setState({ address: value })}
               />
 
               <DatePicker
@@ -129,6 +150,7 @@ class CreateSchedule extends Component {
                 onValueChange={this.onClientChange}
                 placeholder="asd"
               >
+      
                 {this.props.client.data.data && this.props.client.data.data.map(item => (
                 <Picker.Item  key={item.id} label={item.name} value={item.id} />
               ))}

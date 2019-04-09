@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './config/StatusBarConfig';
 import { Provider } from 'react-redux';
+import { Toast } from 'react-native-redux-toast';
 import App from './App';
 
 import store from './store';
 
 const Root = () => (
     <Provider store={store}>
-        <App />
+        <Fragment>
+            <App />
+            <Toast />
+        </Fragment>
     </Provider>
 )
 

@@ -20,7 +20,7 @@ export default Creators;
 export const INITIAL_STATE = Immutable({
     registered: false,
     data: [],
-    report: []
+    report: [],
 });
 
 /* Reducers */

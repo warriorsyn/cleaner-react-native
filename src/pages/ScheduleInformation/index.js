@@ -34,24 +34,23 @@ class ScheduleInformation extends Component {
         
         this._hideDateTimePicker()
 
-        const id = this.props.navigation.state.params;
+        const id = this.props.navigation.state.params.id;
+        const clientId = this.props.navigation.state.params.clientId;
         // const time = this.state.time;
 
-        this.props.finishScheduleRequest(id, this.state.time)
-
+        this.props.finishScheduleRequest(id, clientId ,this.state.time, moment().format('YYYY-MM-DD'));
     }
    
 
     componentDidMount() {
 
-        this.props.getScheduleByIdRequest(this.props.navigation.state.params);
+        this.props.getScheduleByIdRequest(this.props.navigation.state.params.id);
     }
 
     render() {
 
         const { schedule } = this.props;
-
-        console.log(schedule.scheduleById.data)
+        console.log(schedule);
         return (
 
 
@@ -84,7 +83,6 @@ class ScheduleInformation extends Component {
                 onCancel={this._hideDateTimePicker}
                 />
 
-                <Text>{this.state.time}</Text>
             </View>
         )
     }

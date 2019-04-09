@@ -30,7 +30,7 @@ class UniqueReport extends Component {
     }
     onSubmit = () =>  {
         this.props.getHoursReportRequest(this.props.navigation.state.params.id, `${moment(this.state.chosenDate01).format("YYYY-MM-DD")}`, `${moment(this.state.chosenDate02).format('YYYY-MM-DD')}`);
-        console.log(this.props.report);
+
         // console.log(moment(this.state.chosenDate01).format("YYYY-MM-DD"));
     }
 
